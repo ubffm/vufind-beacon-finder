@@ -6,10 +6,10 @@
   <ul>
     <?php foreach ($result as $item): ?>
       <li>
-        <?php if (!empty($item->getNAME()) && !empty($item->getTargetUri())): ?>
-          <a href="<?=$item->getTargetUri()?>" target="_blank"><?=htmlspecialchars($item->getNAME())?></a>
+        <?php if (!empty($item->getTargetUri())): ?>
+          <a href="<?=$item->getTargetUri()?>" target="_blank" rel="noopener noreferrer"><?=htmlspecialchars($item->getNAME() ?: $item->getTargetUri())?></a>
         <?php else: ?>
-          <?=$item->getBeaconUri()?>
+          <?=htmlspecialchars($item->getBeaconUri())?>
         <?php endif; ?>
       </li>
     <?php endforeach; ?>
